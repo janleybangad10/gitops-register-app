@@ -35,7 +35,7 @@ pipeline {
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest" || echo 'No changes to commit'
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'github2', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                     sh '''
                       git remote set-url origin https://$GIT_USERNAME:$GIT_PASSWORD@github.com/janleybangad10/gitops-register-app.git
                       git push origin main
